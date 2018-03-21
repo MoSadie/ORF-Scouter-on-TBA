@@ -1,0 +1,38 @@
+{
+    "name": "ORF Scouter on The Blue Alliance",
+    "version": "1.0",
+    "description": "Inserts a link to the ORF Scouting on team and event pages.",
+    "manifest_version": 2,
+	"background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+	
+	"content_scripts": [
+    {
+      "matches": ["https://www.thebluealliance.com/team/*", "http://www.thebluealliance.com/team/*"],
+      "js": ["teamInject.js"],
+	  "css": [],
+	  "run_at" : "document_end"
+    },
+	{
+      "matches": ["https://www.thebluealliance.com/event/*", "http://www.thebluealliance.com/event/*"],
+      "js": ["eventInject.js"],
+	  "css": [],
+	  "run_at" : "document_end"
+    }
+  ],
+  
+	"page_action": {
+		"default_icon": {
+			"32": "icon32.png"
+		}
+	},
+  
+	"permissions": [
+    "http://www.thebluealliance.com/team/*",
+	"https://www.thebluealliance.com/team/*",
+	"http://www.thebluealliance.com/event/*",
+	"https://www.thebluealliance.com/event/*"
+  ]
+  }
